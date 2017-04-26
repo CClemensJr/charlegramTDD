@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capybara'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'sqlite3'
   gem 'byebug', platform: :mri
