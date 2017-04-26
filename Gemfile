@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'sqlite3'
   gem 'byebug', platform: :mri
 end
