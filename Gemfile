@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'capybara'
 gem 'simple_form'
+gem 'paperclip'
 
 group :development, :test do
   gem 'factory_girl_rails'
