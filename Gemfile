@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capybara'
 gem 'simple_form'
 gem 'paperclip'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'factory_girl_rails'
