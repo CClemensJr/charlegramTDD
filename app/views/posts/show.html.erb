@@ -1,8 +1,25 @@
+<div class="posts-wrapper row">
+  <div class="post">
 
+    <div class="post-head">
+      <div class="name">
+        Charles Clemens
+      </div>
+    </div>
 
-<%= image_tag @post.image.url(:medium) %><br>
-<%= @post.caption %>
+    <div class="image center-block">
+      <%= image_tag @post.image.url(:medium), class: 'img-responsive' %>
+    </div>
 
-<%= link_to ('Edit'), edit_post_path(@post) %>
-|
-<%= link_to ('Go Back'), posts_path %>
+    <p class="caption">
+      <%= @post.caption %>
+    </p>
+
+    <div class="text-center edit-links">
+      <%= link_to "Edit Post", edit_post_path(@post) %>
+      |
+      <%= link_to "Go Back", posts_path %>
+    </div>
+    
+  </div>
+</div>
