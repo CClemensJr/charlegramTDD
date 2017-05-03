@@ -13,6 +13,7 @@ gem 'capybara'
 gem 'simple_form'
 gem 'paperclip'
 gem 'factory_girl_rails'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'factory_girl_rails'
