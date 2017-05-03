@@ -6,3 +6,7 @@
   <%= f.input :caption %>
   <%= f.button :submit %>
 <% end %>
+
+<%= link_to ('Delete'), post_path(@post), method: :delete %>
+|
+<%= link_to ('Go Back'), posts_path %>
