@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'paperclip'
 gem 'factory_girl_rails'
 gem 'bootstrap-sass'
+gem 'devise'
 
 group :development, :test do
   gem 'factory_girl_rails'
