@@ -1,17 +1,25 @@
 require 'rails_helper.rb'
 
-feature 'Editing posts' do
+feature 'editing posts' do
   background do
-    post = create(:post)
-    user = create(:user)
+    user        = create(:user)
+    second_user = create(:user, email:     'ninja@warrior.com',
+                                user_name: 'aoshi',
+                                password:  'shinomori',
+                                id:        user.id + 1)
 
-    sign_in_with user 
+    post        = create(:post)
+    second_post = create(:post, user_id: user.id + 1)
 
-    find(:xpath, "//a[contains(@href,'posts/1')]").click
-    click_link 'Edit'
+    sign_in_with user
+    visit '/'
   end
 
-  scenario 'Can edit a post' do
+  scenario 'can edit a post as the owner' do
+    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    expect(page).to have_content('Edit')
+
+    click_link 'Edit'
     fill_in 'Caption', with: "Whoopsie, you weren’t meant to see that!"
     click_button 'Update'
 
@@ -19,7 +27,21 @@ feature 'Editing posts' do
     expect(page).to have_content("Whoopsie, you weren’t meant to see that!")
   end
 
-  it  "won't update a post without an image" do
+  scenario 'cannot edit a post via show page that doesnt belong to user' do
+    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    expect(page).to_not have_content('Edit')
+  end
+
+  scenario 'cannot edit a post via url that doesnt belong to user' do
+    visit '/posts/2/edit'
+
+    expect(page.current_path).to eq root_path
+    expect(page).to have_content("That post doesn't belong to you!")
+  end
+
+  scenario  "won't update a post without an image" do
+    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    click_link 'Edit'
     attach_file('Image', 'spec/files/coffee.txt')
     click_button 'Update'
 

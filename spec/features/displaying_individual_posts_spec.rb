@@ -5,7 +5,7 @@ feature 'Can view individual posts' do
     user = create(:user)
     post = create(:post)
 
-    sign_in_with user 
+    sign_in_with user
   end
 
   scenario 'Can click and vew a single post' do

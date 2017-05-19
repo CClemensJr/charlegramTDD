@@ -2,10 +2,10 @@ require 'rails_helper.rb'
 
 feature 'Deleting posts' do
   background do
-    post = create(:post, caption: 'Glutes for days.')
     user = create(:user)
+    post = create(:post, caption: 'Glutes for days.')
 
-    sign_in_with user 
+    sign_in_with user
 
     find(:xpath, "//a[contains(@href,'posts/1')]").click
     click_link 'Edit'
